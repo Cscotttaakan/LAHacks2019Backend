@@ -1,0 +1,7 @@
+secret='qXRfgtt34oWnjqLqjYMea1wmh3mngF6v'
+projectid='lahacks2019-236117'
+cloudconnection='lahacks2019-236117:us-west2:lahacks2019db'
+clouduser='root'
+cloudpassword='LaHacks2019$'
+clouddatabase='lahacks2019db'
+mongo='mongodb+srv://rootuser:<password>@lahacks2019db-j3nh8.mongodb.net/test?retryWrites=true'
