@@ -1,5 +1,5 @@
 import os
-from keys import clouduser, cloudpassword, clouddatabase, cloudconnection,secret,projectid,mongo
+from keys import clouduser, cloudpassword, clouddatabase,cloudconnection,secret,projectid,mongo,cloudbucket
 
 SECRET_KEY = secret
 
@@ -36,3 +36,7 @@ else:
 """
 
 MONGO_URI = mongo
+
+CLOUD_STORAGE_BUCKET = cloudbucket 
+MAX_CONTENT_LENGTH = 8 * 1024 * 1024
+ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
