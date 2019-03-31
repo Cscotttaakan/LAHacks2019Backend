@@ -23,7 +23,7 @@ def init_app(app):
     mongo.init_app(app)
 
 def read(id):
-    result = mongo.db.records.find_one({'_id': _id(id)})
+    result = mongo.db.records.find_one({str(1): {"$exists" : 1}})
     return from_mongo(result)
 
 def create(data):
