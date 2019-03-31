@@ -32,4 +32,7 @@ def create_app(config, debug=False, testing=False, config_overrides=None):
         See logs for full stacktrace.
         """.format(e), 500
 
+    from .crud import crud
+    app.register_blueprint(crud, url_prefix='/analysis')
 
+    return app
