@@ -41,7 +41,6 @@ def process():
 
         data = { 'base64' : png_as_text }
 
-        sgmakeresponse = requests.post('https://www.placeholder.com/api', json = data)
 
 
 
