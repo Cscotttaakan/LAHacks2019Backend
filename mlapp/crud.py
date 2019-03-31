@@ -23,15 +23,20 @@ def upload_image_file(file):
 def process():
 
 
+    patientid = request.get('id')
     #image_url = upload_image_file(request.files.get('image'))
-    img_stream = BytesIO(request.files.get('image').read())
-    img = cv2.imdecode(np.fromstring(img_stream.read(), np.uint8),cv2.IMREAD_UNCHANGED)
+    """
+    if request.files.get('image') is not None:
+        print('still calling') 
+        img_stream = BytesIO(request.files.get('image').read())
+        img = cv2.imdecode(np.fromstring(img_stream.read(), np.uint8),cv2.IMREAD_UNCHANGED)
 
-    resized_image = cv2.resize(img, (256, 256))
-    is_success, buffer2 = cv2.imencode(".png", resized_image)
-    png_as_text = base64.b64encode(buffer2)
+        resized_image = cv2.resize(img, (256, 256))
+        is_success, buffer2 = cv2.imencode(".png", resized_image)
+        png_as_text = base64.b64encode(buffer2)
 
     #file2 = FileStorage(io_buf)
+    """
 
 
-    return png_as_text 
+    return patientid

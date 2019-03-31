@@ -27,12 +27,12 @@ def read(id):
     return from_mongo(result)
 
 def create(data):
-    result = mongo.db.books.insert_one(data)
+    result = mongo.db.records.insert_one(data)
     return read(result.inserted_id)
 
 def update(data, id):
-    mongo.db.books.replace_one({'_id': _id(id)}, data)
+    mongo.db.records.replace_one({'_id': _id(id)}, data)
     return read(id)
 
 def delete(id):
-    mongo.db.books.delete_one({'_id': _id(id)})
+    mongo.db.records.delete_one({'_id': _id(id)})
