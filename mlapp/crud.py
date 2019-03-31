@@ -6,6 +6,11 @@ from . import storage
 import cv2,requests,base64
 from werkzeug.datastructures import FileStorage
 import requests,pymongo
+import json
+import sys, os
+sys.path.append('..')
+
+from keys import *
 
 crud = Blueprint('crud', __name__)
 def upload_image_file(file):
@@ -40,16 +45,17 @@ def process():
 
 
 
-    return sgmakeresponse
+    return 'data' 
 
 @crud.route("/patient/<id>", methods=['GET'])
 def get(id):
-    myclient = pymongo.MongoClient("mongodb+srv://backend:LaHacks2019@lahacks2019db-j3nh8.mongodb.net/test?retryWrites=true")
-    mydb = myclient["Records"]
-    mycol = mydb["LaHacks2019"]
+    myclient = pymongo.MongoClient(mongo)
+    mydb = myclient[mongodb]
+    mycol = mydb[mongocol]
 
-    patient = mycol.find_one({str(id): {"$exists" : 1}})
-    return patient
+    patient = mycol.find_one({id : {'$exists': True}})
+    patient = patient[id]
+    return json.dumps({id : patient})
 
 
 
